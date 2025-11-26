@@ -120,6 +120,30 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
       box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
     }
     
+    /* Bouton de connexion */
+    .menu a.login-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: linear-gradient(135deg, #169dd7 0%, #131312 100%);
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(22, 157, 215, 0.3);
+      margin-left: 8px;
+    }
+    
+    .menu a.login-btn:hover {
+      color: white;
+      background: linear-gradient(135deg, #0f7aa8 0%, #000000 100%);
+      box-shadow: 0 6px 20px rgba(22, 157, 215, 0.5);
+    }
+    
+    .menu a.login-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    
     /* Indicateur animé sous les liens */
     .menu a::after {
       content: '';
@@ -134,7 +158,7 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
       transition: transform 0.3s ease;
     }
     
-    .menu a:not(.active):hover::after {
+    .menu a:not(.active):not(.login-btn):hover::after {
       transform: translateX(-50%) scaleX(1);
     }
     
@@ -226,6 +250,12 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
         font-size: 1.05em;
       }
       
+      .menu a.login-btn {
+        margin-left: 0;
+        margin-top: 8px;
+        justify-content: center;
+      }
+      
       main.container {
         padding-top: 85px;
       }
@@ -250,6 +280,12 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
         <a href="index.php" class="<?= $current_page === 'index' ? 'active' : '' ?>">Accueil</a>
         <a href="actualites.php" class="<?= ($current_page === 'actualites' || $current_page === 'actualite') ? 'active' : '' ?>">Actualités</a>
         <a href="contact.php" class="<?= $current_page === 'contact' ? 'active' : '' ?>">Contact</a>
+        <a href="login.php" class="login-btn">
+          <svg fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+          </svg>
+          Connexion
+        </a>
       </nav>
     </div>
   </header>

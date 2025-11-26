@@ -1,14 +1,14 @@
 <?php require_once __DIR__ . '/includes/header.php'; ?>
 
 <style>
-  /* Overlay avec effet de flou */
+  /* Overlay avec effet de flou - Mode sombre */
   .login-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
@@ -39,14 +39,15 @@
     }
   }
 
-  /* Container de login */
+  /* Container de login - Mode sombre */
   .login-container {
-    background: white;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 36px 28px;
     max-width: 360px;
     width: 100%;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
     animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
   }
@@ -60,12 +61,12 @@
     width: 56px;
     height: 56px;
     margin: 0 auto 16px;
-    background: linear-gradient(135deg, #169dd7 0%, #131312 100%);
+    background: linear-gradient(135deg, #e63946 0%, #a8201a 100%);
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 18px rgba(22, 157, 215, 0.28);
+    box-shadow: 0 6px 18px rgba(230, 57, 70, 0.36);
     animation: float 3s ease-in-out infinite;
   }
 
@@ -87,14 +88,34 @@
   .login-header h1 {
     margin: 0 0 8px 0;
     font-size: 24px;
-    color: #1f2937;
+    color: #ffffff;
     font-weight: 700;
   }
 
   .login-header p {
     margin: 0;
-    color: #6b7280;
+    color: #94a3b8;
     font-size: 15px;
+  }
+
+  /* Badge administrateur */
+  .admin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(230, 57, 70, 0.12);
+    color: #ff6b6b;
+    padding: 6px 12px;
+    border-radius: 18px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    border: 1px solid rgba(230, 57, 70, 0.25);
+  }
+
+  .admin-badge svg {
+    width: 14px;
+    height: 14px;
   }
 
   /* Formulaire */
@@ -109,7 +130,7 @@
   .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #374151;
+    color: #e2e8f0;
     font-weight: 600;
     font-size: 14px;
   }
@@ -123,7 +144,7 @@
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: #9ca3af;
+    color: #64748b;
     width: 20px;
     height: 20px;
   }
@@ -131,18 +152,23 @@
   .form-group input {
     width: 100%;
     padding: 12px 14px 12px 44px;
-    border: 2px solid #e5e7eb;
+    border: 2px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     font-size: 14px;
     transition: all 0.3s ease;
-    background: #f9fafb;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+  }
+
+  .form-group input::placeholder {
+    color: #64748b;
   }
 
   .form-group input:focus {
     outline: none;
-    border-color: #169dd7;
-    background: white;
-    box-shadow: 0 0 0 4px rgba(22, 157, 215, 0.1);
+    border-color: #e63946;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
   }
 
   .forgot-password {
@@ -152,7 +178,7 @@
   }
 
   .forgot-password a {
-    color: #169dd7;
+    color: #ff6b6b;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
@@ -160,14 +186,14 @@
   }
 
   .forgot-password a:hover {
-    color: #0f7aa8;
+    color: #ff8787;
     text-decoration: underline;
   }
 
   .login-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #169dd7 0%, #131312 100%);
+    background: linear-gradient(135deg, #e63946 0%, #a8201a 100%);
     color: white;
     border: none;
     border-radius: 10px;
@@ -175,28 +201,28 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(22, 157, 215, 0.28);
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
   }
 
   .login-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(22, 157, 215, 0.4);
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
   }
 
   .login-btn:active {
     transform: translateY(0);
   }
 
-  /* Lien administrateur */
-  .admin-link {
+  /* Lien retour utilisateur */
+  .user-link {
     text-align: center;
     margin-top: 30px;
     padding-top: 30px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .admin-link a {
-    color: #6b7280;
+  .user-link a {
+    color: #94a3b8;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
@@ -206,11 +232,11 @@
     transition: all 0.3s ease;
   }
 
-  .admin-link a:hover {
+  .user-link a:hover {
     color: #169dd7;
   }
 
-  .admin-link svg {
+  .user-link svg {
     width: 16px;
     height: 16px;
   }
@@ -232,11 +258,11 @@
     <div class="login-header">
       <div class="login-logo">
         <svg fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
         </svg>
       </div>
-      <h1>Connexion</h1>
-      <p>Bienvenue ! Connectez-vous à votre compte</p>
+      <h1>Connexion Admin</h1>
+      <p>Espace réservé aux administrateurs du système</p>
     </div>
 
     <form class="login-form" method="post">
@@ -246,7 +272,7 @@
           <svg class="input-icon" fill="currentColor" viewBox="0 0 24 24">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
           </svg>
-          <input type="email" id="email" name="email" required placeholder="exemple@email.com" autocomplete="email">
+          <input type="email" id="email" name="email" required placeholder="admin@techsolutions.com" autocomplete="email">
         </div>
       </div>
 
@@ -269,12 +295,12 @@
       </button>
     </form>
 
-    <div class="admin-link">
-      <a href="loginadmin.php">
+    <div class="user-link">
+      <a href="login.php">
         <svg fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
         </svg>
-        Login Administrateur
+        Retour à la connexion utilisateur
       </a>
     </div>
   </div>
