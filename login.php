@@ -60,12 +60,12 @@
     width: 56px;
     height: 56px;
     margin: 0 auto 16px;
-    background: linear-gradient(135deg, #169dd7 0%, #131312 100%);
+    background: linear-gradient(135deg, #5ccf26ff 0%, #1f941aff 100%);
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 18px rgba(22, 157, 215, 0.28);
+    box-shadow: 0 6px 18px rgba(92, 207, 38, 0.28);
     animation: float 3s ease-in-out infinite;
   }
 
@@ -167,7 +167,7 @@
   .login-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #169dd7 0%, #131312 100%);
+    background: linear-gradient(135deg, #5ccf26ff 0%, #1f941aff 100%);
     color: white;
     border: none;
     border-radius: 10px;
@@ -175,12 +175,12 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(22, 157, 215, 0.28);
+    box-shadow: 0 4px 12px rgba(92, 207, 38, 0.5);
   }
 
   .login-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(22, 157, 215, 0.4);
+    box-shadow: 0 8px 25px rgba(92, 207, 38, 0.4);
   }
 
   .login-btn:active {

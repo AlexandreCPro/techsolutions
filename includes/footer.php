@@ -57,11 +57,9 @@
       <div class="footer-bottom-content">
         <p>&copy; <?= date('Y') ?> <?= SITE_NAME ?> — Tous droits réservés</p>
         <div class="footer-legal">
-          <a href="#">Mentions légales</a>
+          <a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees">Mentions légales</a>
           <span class="separator">•</span>
           <a href="#">Politique de confidentialité</a>
-          <span class="separator">•</span>
-          <a href="#">CGV</a>
         </div>
       </div>
     </div>

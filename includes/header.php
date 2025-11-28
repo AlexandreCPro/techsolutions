@@ -126,17 +126,17 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
       align-items: center;
       gap: 8px;
       padding: 10px 24px;
-      background: linear-gradient(135deg, #169dd7 0%, #131312 100%);
+      background: linear-gradient(135deg, #eba31fff 0%, #d69e25ff 100%);
       color: white;
       font-weight: 600;
-      box-shadow: 0 4px 15px rgba(22, 157, 215, 0.3);
+      box-shadow: 0 4px 15px rgba(235, 163, 31, 0.3);
       margin-left: 8px;
     }
     
     .menu a.login-btn:hover {
       color: white;
-      background: linear-gradient(135deg, #0f7aa8 0%, #000000 100%);
-      box-shadow: 0 6px 20px rgba(22, 157, 215, 0.5);
+      background: linear-gradient(135deg, #eba31fff 0%, #d69e25ff 100%);
+      box-shadow: 0 6px 20px rgba(10, 14, 8, 0.5);
     }
     
     .menu a.login-btn svg {
@@ -289,48 +289,3 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
       </nav>
     </div>
   </header>
-  
-  <main class="container">
-    
-  <script>
-    // Animation du header au scroll
-    const header = document.getElementById('header');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      
-      lastScroll = currentScroll;
-    });
-    
-    // Menu mobile
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('menu');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenuBtn.classList.toggle('active');
-      menu.classList.toggle('active');
-    });
-    
-    // Fermer le menu mobile en cliquant sur un lien
-    document.querySelectorAll('.menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenuBtn.classList.remove('active');
-        menu.classList.remove('active');
-      });
-    });
-    
-    // Fermer le menu mobile en cliquant ailleurs
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.menu') && !e.target.closest('.mobile-menu-btn')) {
-        mobileMenuBtn.classList.remove('active');
-        menu.classList.remove('active');
-      }
-    });
-  </script>
