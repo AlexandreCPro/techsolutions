@@ -14,7 +14,7 @@
           </p>
         </div>
 
-        <!-- Colonne 3: Contact -->
+        <!-- Colonne 2: Contact -->
         <div class="footer-column">
           <h3 class="footer-title">Contact</h3>
           <ul class="footer-contact">
@@ -39,7 +39,7 @@
           </ul>
         </div>
 
-        <!-- Colonne 4: Horaires -->
+        <!-- Colonne 3: Horaires -->
         <div class="footer-column">
           <h3 class="footer-title">Horaires</h3>
           <ul class="footer-hours">
@@ -193,29 +193,6 @@
 
 .footer-hours strong {
   color: #fff;
-}
-
-.footer-social {
-  display: flex;
-  gap: 16px;
-}
-
-.footer-social a {
-  width: 36px;
-  height: 36px;
-  background: #334155;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #cbd5e1;
-  transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-  background: #475569;
-  color: #fff;
-  transform: translateY(-3px);
 }
 
 .footer-bottom {

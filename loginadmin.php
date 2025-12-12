@@ -265,7 +265,7 @@
       <p>Espace réservé aux administrateurs du système</p>
     </div>
 
-    <form class="login-form" method="post">
+    <form class="login-form" method="post" action="admin.php">
       <div class="form-group">
         <label for="email">Adresse email</label>
         <div class="input-wrapper">

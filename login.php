@@ -1,4 +1,5 @@
 <?php require_once __DIR__ . '/includes/header.php'; ?>
+<?php require_once __DIR__ . '/includes/db.php'; ?>
 
 <style>
   /* Overlay avec effet de flou */
@@ -239,7 +240,7 @@
       <p>Bienvenue ! Connectez-vous à votre compte</p>
     </div>
 
-    <form class="login-form" method="post">
+    <form class="login-form" method="post" action="utilisateur.php">
       <div class="form-group">
         <label for="email">Adresse email</label>
         <div class="input-wrapper">
@@ -261,7 +262,7 @@
       </div>
 
       <div class="forgot-password">
-        <a href="#">Mot de passe oublié ?</a>
+        <a href="mdpoublie.php">Mot de passe oublié ?</a>
       </div>
 
       <button type="submit" class="login-btn">

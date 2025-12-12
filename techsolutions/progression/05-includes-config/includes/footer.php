@@ -1,0 +1,1 @@
+</main><hr><footer>&copy; <?= date('Y') ?> <?= SITE_NAME ?></footer></body></html>
